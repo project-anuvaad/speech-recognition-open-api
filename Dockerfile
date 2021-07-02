@@ -33,4 +33,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . /opt/speech_recognition_open_api
 EXPOSE 50051
 RUN sh /opt/speech_recognition_open_api/model_bootstrap.sh
-CMD ["conda", "run", "--no-capture-output", "-n", "fairseq","python","/opt/speech_recognition_open_api/server.py"]
+CMD ["conda", "run", "--no-capture-output", "-n", "fairseq","python3","/opt/speech_recognition_open_api/server.py"]

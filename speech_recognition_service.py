@@ -13,7 +13,7 @@ from speech_recognition_service_handler import handle_request
 class SpeechRecognizer(speech_recognition_open_api_pb2_grpc.SpeechRecognizerServicer):
 
     def __init__(self):
-        model_dict_path = "model_dict.json"
+        model_dict_path = "/opt/speech_recognition_open_api/model_dict.json"
         self.model_service = ModelService(model_dict_path)
         print("Loaded successfully")
 

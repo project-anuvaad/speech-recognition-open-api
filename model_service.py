@@ -1,6 +1,6 @@
 from inference_module import InferenceService
 from punctuate.punctuate_text import Punctuation
-from inverse_text_normalization.run_predict import inverse_normalize_text
+# from inverse_text_normalization.run_predict import inverse_normalize_text
 import os
 
 

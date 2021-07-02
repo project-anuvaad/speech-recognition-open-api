@@ -38,7 +38,7 @@ class MetadataClientInterceptor(ClientInterceptor):
 
 
 def read_audio():
-    with wave.open('changed.wav', 'rb') as f:
+    with wave.open('/home/sujit27/projects/audio-to-text/testing/audio_chunks__0.4_8_0.075_50/region_139.887-149.882.wav', 'rb') as f:
         return f.readframes(f.getnframes())
 
 
@@ -83,7 +83,7 @@ def get_srt_audio_bytes(stub):
     audio_bytes = read_audio()
     lang = Language(value=language, name='Hindi')
     config = RecognitionConfig(language=lang, audioFormat='WAV', transcriptionFormat='SRT',
-                               enableInverseTextNormalization=True)
+                               enableInverseTextNormalization=False)
     audio = RecognitionAudio(audioContent=audio_bytes)
     request = SpeechRecognitionRequest(audio=audio, config=config)
 
@@ -111,10 +111,10 @@ def get_srt_audio_url(stub):
 if __name__ == '__main__':
     key = "mysecrettoken"
     interceptors = [MetadataClientInterceptor(key)]
-    with grpc.insecure_channel('34.70.114.226:50051') as channel:
+    with grpc.insecure_channel('127.0.0.1:50051') as channel:
         channel = grpc.intercept_channel(channel, *interceptors)
         stub = SpeechRecognizerStub(channel)
         # transcribe_audio_url(stub)
-        # transcribe_audio_bytes(stub)
-        get_srt_audio_url(stub)
-        get_srt_audio_bytes(stub)
+        transcribe_audio_bytes(stub)
+        # get_srt_audio_url(stub)
+        # get_srt_audio_bytes(stub)

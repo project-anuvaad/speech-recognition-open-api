@@ -20,6 +20,7 @@ FROM continuumio/miniconda3
 #    && rm -f Miniconda3-latest-Linux-x86_64.sh
 
 RUN mkdir /opt/speech_recognition_open_api/
+RUN mkdir /opt/speech_recognition_open_api/model
 WORKDIR /opt/speech_recognition_open_api/
 COPY environment.yml .
 RUN conda env create -f environment.yml

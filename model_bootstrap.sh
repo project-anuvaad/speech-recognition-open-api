@@ -57,3 +57,5 @@ fi
 apt-get install -y gcc-4.9
 apt-get upgrade -y libstdc++6
 
+#create directory for models
+mkdir models

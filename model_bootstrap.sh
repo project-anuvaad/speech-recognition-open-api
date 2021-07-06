@@ -10,7 +10,7 @@ apt install -y build-essential cmake libboost-system-dev libboost-thread-dev lib
 apt-get install -y libsndfile1 ffmpeg
 
 
-pip3 install git+https://github.com/Open-Speech-EkStep/indic-punct.git#egg=indic-punct
+pip3 install git+https://github.com/Open-Speech-EkStep/indic-punct.git@0b34b393bf4790b84b9efcf25afcb1ccd8c520ce#egg=indic-punct
 conda install -c conda-forge pynini==2.1.4 -y
 pip3 install ray[tune]
 pip3 install 'ray[default]'

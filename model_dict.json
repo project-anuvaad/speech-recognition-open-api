@@ -1,3 +1,4 @@
 {
-    "hi" : "models/final_model_ajitesh_test.pt"
+    "hi" : "models/final_model_ajitesh_test.pt",
+    "gu": "models/gujarati/final_model_tarento_test_gujarati.pt"
 }

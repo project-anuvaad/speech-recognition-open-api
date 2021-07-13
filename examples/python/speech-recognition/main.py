@@ -5,6 +5,7 @@ from stub.speech_recognition_open_api_pb2 import Language, RecognitionConfig, Re
 import wave
 from grpc_interceptor import ClientCallDetails, ClientInterceptor
 
+MAX_MESSAGE_LENGTH = 50 * 1024 * 1024
 
 class GrpcAuth(grpc.AuthMetadataPlugin):
     def __init__(self, key):
@@ -38,7 +39,7 @@ class MetadataClientInterceptor(ClientInterceptor):
 
 
 def read_audio():
-    with wave.open('/home/sujit27/projects/audio-to-text/testing/audio_chunks__0.4_8_0.075_50/region_139.887-149.882.wav', 'rb') as f:
+    with wave.open('/home/sujit27/projects/ASR/vakyansh-client-code/saved_audio.wav', 'rb') as f:
         return f.readframes(f.getnframes())
 
 
@@ -111,10 +112,11 @@ def get_srt_audio_url(stub):
 if __name__ == '__main__':
     key = "mysecrettoken"
     interceptors = [MetadataClientInterceptor(key)]
-    with grpc.insecure_channel('127.0.0.1:50051') as channel:
+    grpc_channel = grpc.insecure_channel('localhost:50051', options=[('grpc.max_send_message_length', MAX_MESSAGE_LENGTH),('grpc.max_receive_message_length', MAX_MESSAGE_LENGTH)])
+    with grpc_channel as channel:
         channel = grpc.intercept_channel(channel, *interceptors)
         stub = SpeechRecognizerStub(channel)
         # transcribe_audio_url(stub)
-        transcribe_audio_bytes(stub)
+        # transcribe_audio_bytes(stub)
         # get_srt_audio_url(stub)
-        # get_srt_audio_bytes(stub)
+        get_srt_audio_bytes(stub)

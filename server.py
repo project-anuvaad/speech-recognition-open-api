@@ -5,10 +5,12 @@ from stub.speech_recognition_open_api_pb2_grpc import add_SpeechRecognizerServic
 from inference_lib.wav2vec_ctc import Wav2VecCtc
 from auth_interceptor import AuthInterceptor
 
+MAX_MESSAGE_LENGTH = 50 * 1024 * 1024
 
 def run():
     server = grpc.server(
         futures.ThreadPoolExecutor(max_workers=10),
+        options = [('grpc.max_send_message_length', MAX_MESSAGE_LENGTH),('grpc.max_receive_message_length', MAX_MESSAGE_LENGTH)]
         # interceptors=(AuthInterceptor('Bearer mysecrettoken'),)
     )
     add_SpeechRecognizerServicer_to_server(SpeechRecognizer(), server)

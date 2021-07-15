@@ -1,4 +1,9 @@
 {
-    "hi" : "models/final_model_ajitesh_test.pt",
-    "gu": "models/gujarati/final_model_tarento_test_gujarati.pt"
+    "hi": "models/hi/model.pt",
+    "gu": "models/gu/model.pt",
+    "kn": "models/kn/model.pt",
+    "en": "models/en/model.pt",
+    "or": "models/or/model.pt",
+    "ta": "models/ta/model.pt",
+    "te": "models/te/model.pt"
 }

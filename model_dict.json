@@ -1,9 +1,5 @@
 {
     "hi": "models/hi/model.pt",
-    "gu": "models/gu/model.pt",
-    "kn": "models/kn/model.pt",
-    "en": "models/en/model.pt",
-    "or": "models/or/model.pt",
-    "ta": "models/ta/model.pt",
-    "te": "models/te/model.pt"
+    "en": "models/gu/model.pt",
+    "bn": "models/kn/model.pt"
 }

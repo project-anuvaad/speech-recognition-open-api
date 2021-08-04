@@ -1,3 +1,6 @@
 {
-    "bn": "models/bn/bengali_infer.pt"
+    "hi": "models/hi/model.pt",
+    "en": "models/en/model.pt",
+    "bn": "models/bn/model.pt",
+    "te": "models/te/model.pt"
 }

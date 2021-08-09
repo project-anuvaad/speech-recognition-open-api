@@ -22,7 +22,7 @@ cmake ..
 make -j 16
 cd ..
 export KENLM_ROOT=$PWD
-export USE_CUDA=0 ## for cpu
+export USE_CUDA=1 ## for GPU
 cd ..
 
 

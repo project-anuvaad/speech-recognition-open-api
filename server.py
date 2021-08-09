@@ -25,7 +25,7 @@ class RecognizeAudioServicer(RecognizeServicer):
             os.system('mkdir utterances')
         with open('model_dict.json','r') as f:
             model_config = json.load(f)
-        self.inference = ModelService(model_config, 'kenlm', False, False)
+        self.inference = ModelService(model_config, 'kenlm', True, False)
         print('Model Loaded Successfully')
         self.count = 0
         self.file_count = 0

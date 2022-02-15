@@ -4,9 +4,10 @@ from pydub import AudioSegment
 from srt.infer import generate_srt
 import torch
 import shutil
+import uuid
 
 def media_conversion(file_name, duration_limit=5):
-    dir_name = os.path.join('/tmp', datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+    dir_name = str(uuid.uuid1())
     os.makedirs(dir_name)
 
     subprocess.call(["ffmpeg -i {} -ar {} -ac {} -bits_per_raw_sample {} -vn {}".format(file_name, 16000, 1, 16, dir_name + '/input_audio.wav')], shell=True)
@@ -21,9 +22,7 @@ def media_conversion(file_name, duration_limit=5):
         clipped_audio.export(dir_name + '/clipped_audio.wav', format='wav')
     else:
         audio_file.export(dir_name + '/clipped_audio.wav', format='wav')
-
     os.remove(dir_name + '/input_audio.wav')
-
     return dir_name
 
 def noise_suppression(dir_name,denoiser_path):

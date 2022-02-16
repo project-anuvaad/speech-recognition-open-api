@@ -1,5 +1,6 @@
 {
     "hi": "models/hi/model.pt",
     "kn": "models/kn/model.pt",
-    "en": "models/en/model.pt"
+    "en": "models/en/model.pt",
+    "ta": "models/ta/model.pt"
 }
